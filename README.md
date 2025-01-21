@@ -13,6 +13,6 @@ Login dengan:
 
 ## Teknologi yang Digunakan:
 - **PHP**: Backend logic
-- **MySQL**: Database untuk menyimpan data siswa, mata pelajaran, dan nilai.
+- **MySQL**: Database untuk menyimpan Data Mahasiswa, Mata Kuliah, dan Nilai.
 - **HTML/CSS**: Frontend untuk menampilkan halaman web.
 - **JavaScript**: Menambah interaktivitas halaman.
