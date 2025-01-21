@@ -1,0 +1,287 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Head Title */
+.head-title {
+    padding: 20px;
+    background: linear-gradient(135deg, #0080ff 10%, #0c5aa8 100%);
+    color: white;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.head-title h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.breadcrumb {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.breadcrumb li {
+    margin-right: 10px;
+    color: #fd8a26;
+}
+
+.breadcrumb li i {
+    margin-right: 5px;
+}
+
+/* Table Styles */
+.table-data {
+    padding: 20px;
+    background-color: #F9F9F9;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+thead {
+    background-color: #0080ff;
+    color: white;
+}
+
+thead th {
+    padding: 15px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button Styles */
+td button {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+/* Specific Button Colors */
+td .edit-btn {
+    background-color: #0d6efd;
+    color: white;
+}
+
+td .edit-btn:hover {
+    background-color: #0d6efd;
+}
+
+td .delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+td .delete-btn:hover {
+    background-color: #dc3545;
+}
+
+td .print-btn {
+    background-color: #ffc107;
+    color: white;
+}
+
+td .print-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Bottom Buttons (Add & Print) */
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.buttons button {
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Add Profile */
+.buttons .add-profile-btn {
+    background-color: #28a745;
+}
+
+.buttons .add-profile-btn:hover {
+    background-color: #218838;
+}
+
+/* Button Print All */
+.buttons .print-all-btn {
+    background-color: #ffc107;
+}
+
+.buttons .print-all-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-data {
+        padding: 10px;
+    }
+
+    table thead th, table tbody td {
+        padding: 10px;
+    }
+
+    td button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .buttons button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: white;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Icon and Status Dropdown */
+.form-group select {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.form-group select#status option[value="mahasiswa"] {
+    background-image: url('https://img.icons8.com/ios/50/000000/graduation-cap.png');
+}
+
+.form-group select#status option[value="mahasiswi"] {
+    background-image: url('https://img.icons8.com/ios/50/000000/graduate.png');
+}
+
+/* Form Buttons */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-buttons button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-buttons button:hover {
+    background-color: #218838;
+}
+
+.form-buttons .close-btn {
+    background-color: #dc3545;
+}
+
+.form-buttons .close-btn:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+    }
+
+    .form-group input {
+        padding: 8px;
+    }
+}
