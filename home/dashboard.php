@@ -99,59 +99,59 @@
                     </thead>
                     <tbody>
                         <?php
-// Koneksi ke database
-include 'database/db.php';
+                        // Koneksi ke database
+                        include 'database/db.php';
 
-// Query untuk mengambil data mahasiswa, foto, NIM, nilai rata-rata, dan keterangan
-$sql = "
-    SELECT students.nim, students.nama, students.foto, 
-           AVG(nilai.nilai) AS rata_rata
-    FROM students
-    JOIN nilai ON students.nim = nilai.nim
-    GROUP BY students.nim
-";
-$result = $conn->query($sql);
+                        // Query untuk mengambil data mahasiswa, foto, NIM, nilai rata-rata, dan keterangan
+                        $sql = "
+                                SELECT students.nim, students.nama, students.foto, 
+                                    AVG(nilai.nilai) AS rata_rata
+                                FROM students
+                                JOIN nilai ON students.nim = nilai.nim
+                                GROUP BY students.nim
+                            ";
+                        $result = $conn->query($sql);
 
-// Menampilkan data mahasiswa dan keterangan berdasarkan nilai rata-rata
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $rata_rata = round($row['rata_rata']); // Membulatkan nilai rata-rata
-        $status = '';
-        $status_class = '';
+                        // Menampilkan data mahasiswa dan keterangan berdasarkan nilai rata-rata
+                        if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                        $rata_rata = round($row['rata_rata']); // Membulatkan nilai rata-rata
+                        $status = '';
+                        $status_class = '';
 
-        // Menentukan status berdasarkan rentang nilai
-        if ($rata_rata >= 85 && $rata_rata <= 100) {
-            $status = 'A';
-            $status_class = 'completed'; // Warna hijau
-        } elseif ($rata_rata >= 75 && $rata_rata < 85) {
-            $status = 'B';
-            $status_class = 'process'; // Warna biru
-        } elseif ($rata_rata >= 60 && $rata_rata < 75) {
-            $status = 'C';
-            $status_class = 'warning'; // Warna kuning
-        } elseif ($rata_rata >= 30 && $rata_rata < 60) {
-            $status = 'D';
-            $status_class = 'alert'; // Warna oranye
-        } else {
-            $status = 'E';
-            $status_class = 'pending'; // Warna merah
-        }
+                        // Menentukan status berdasarkan rentang nilai
+                        if ($rata_rata >= 85 && $rata_rata <= 100) {
+                            $status = 'A';
+                            $status_class = 'completed'; // Warna hijau
+                        } elseif ($rata_rata >= 75 && $rata_rata < 85) {
+                            $status = 'B';
+                            $status_class = 'process'; // Warna biru
+                        } elseif ($rata_rata >= 60 && $rata_rata < 75) {
+                            $status = 'C';
+                            $status_class = 'warning'; // Warna kuning
+                        } elseif ($rata_rata >= 30 && $rata_rata < 60) {
+                            $status = 'D';
+                            $status_class = 'alert'; // Warna oranye
+                        } else {
+                            $status = 'E';
+                            $status_class = 'pending'; // Warna merah
+                        }
 
-        // Menampilkan data ke tabel dengan nilai rata-rata di samping status
-        echo "
-        <tr>
-            <td>
-                <img src='" . htmlspecialchars($row['foto']) . "' alt='foto mahasiswa'>
-                <p>" . htmlspecialchars($row['nama']) . "</p>
-            </td>
-            <td>" . htmlspecialchars($row['nim']) . "</td>
-            <td><span class='status " . $status_class . "'>" . $status . " (Nilai: " . htmlspecialchars($rata_rata) . ")</span></td>
-        </tr>";
-    }
-} else {
-    echo "<tr><td colspan='3'>Tidak ada data ditemukan.</td></tr>";
-}
-?>
+                        // Menampilkan data ke tabel dengan nilai rata-rata di samping status
+                        echo "
+                        <tr>
+                            <td>
+                                <img src='" . htmlspecialchars($row['foto']) . "' alt='foto mahasiswa'>
+                                <p>" . htmlspecialchars($row['nama']) . "</p>
+                            </td>
+                            <td>" . htmlspecialchars($row['nim']) . "</td>
+                            <td><span class='status " . $status_class . "'>" . $status . " (Nilai: " . htmlspecialchars($rata_rata) . ")</span></td>
+                        </tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='3'>Tidak ada data ditemukan.</td></tr>";
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
